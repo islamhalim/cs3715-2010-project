@@ -1,33 +1,31 @@
 package database;
 
-public class Students {
+public class Student extends AccountLogin {
 	
-	private StudentID student;
 	private String name;
 	private String email;
 	private String phoneNumber = "N/A";
 	private String address = "N/A";
 	
 	
-	
-	public Students( String sName, String sEmail, String sAddress, String sPhoneNum, StudentID sID){
+	public Student(String sUserName, String sPassword , String sName, 
+						String sEmail, String sAddress, String sPhoneNum){
 		
+		super(sUserName, sPassword);
 		this.name = sName;
 		this.email = sEmail;
 		this.phoneNumber = sPhoneNum;
 		this.address = sAddress;
-		this.student = sID;
+
 	}
-	public Students(String sName, String sEmail, StudentID sID){
+	public Student(String sUserName, String sPassword, String sName, String sEmail){
+		super(sUserName, sPassword);
 		this.name = sName;
 		this.email = sEmail;
-		this.student = sID;
+
 		
 	}
 	
-	public StudentID getID(){
-		return this.student;
-	}
 	public String getName(){
 		return this.name;
 	}
