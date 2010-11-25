@@ -1,21 +1,25 @@
 /* ajax example, that appends to a list */
 function sendForm( evt ) {
+	alert("yo");
     // get userName data
-    var text = document.getElementById('userName');
-
+    var userName = document.getElementById('userName');
+    var password = document.getElementById('password');
 
     var xmlDoc = document.implementation.createDocument(null, null, null);
 
     var xml = xmlDoc.createElement('element');
-    xml.appendChild( xmlDoc.createTextNode( text.value) );
+    xml.appendChild( xmlDoc.createTextNode( userName.value) );
     xmlDoc.appendChild( xml );
-
-    var userName = document.getElementsByTagName('username');
     
-    if (userName=='root'){ 	
+    var xml = xmlDoc.createElement('element');
+    xml.appendChild( xmlDoc.createTextNode( password.value) );
+    xmlDoc.appendChild( xml );
+    
+    
+    if (userName.value =='root'){ 	
 	    // transmit the document
 	    var req = new XMLHttpRequest();
-	    req.open("POST","list/a", true );	
+	    req.open("POST","login/root", true );	
 	    req.onreadystatechange = function() {
 		if ( req.readyState == 4) {
 		    displayResult( req )
@@ -23,8 +27,49 @@ function sendForm( evt ) {
 	    }
 	    req.send( xmlDoc );
 	    // clear text area
-	    text.value = '';
     }
+    
+    else{
+    	var req = new XMLHttpRequest();
+	    req.open("POST","login/user", true );	
+	    req.onreadystatechange = function() {
+		if ( req.readyState == 4) {
+		    displayResult( req )
+		}
+	    }
+	    req.send( xmlDoc );
+	    // clear text area
+    }
+    password.text = '';
+    
+}
+
+function login(){
+	var theName = document.getElementById('userName');
+	var thePass = document.getElementById('password');
+	if (theName.value == 'root') {
+
+		clearResults();
+		checkPass(thePass.value);
+		//initializeForm();
+	}
+	
+		
+}
+
+function register(){
+	var theName = document.getElementById('userName');
+	var thePass = document.getElementById('password');
+	if (theName == 'root'){
+		clearResults();
+		rootReg();
+		//initializeForm();
+	}
+	else {
+		clearResults();
+		checkReg(theName.value, thePass.value);
+		//initializeForm();
+	}
 }
 
 function displayResult( req ) {
@@ -60,14 +105,15 @@ function clearResults( ) {
 function initializeForm() 
 {
      var b = document.getElementById( 'sendButton' );
-     b.addEventListener('click', userName, false );
+     b.addEventListener('click', sendForm, false );
 
 }
 
 window.addEventListener("load", initializeForm, false);
 
-function login(){
+function checkPass(){
     var text = document.getElementById('userName');
+	var thePass = document.getElementById('password');
 
     var xmlDoc = document.implementation.createDocument(null, null, null);
 
@@ -76,17 +122,14 @@ function login(){
  //   xmlDoc.appendChild( xml );
 	
     var req = new XMLHttpRequest();
-    req.open("GET",'list/login', true );   	
+    req.open("GET",'login/root', true );   	
     req.onreadystatechange = function() {
         if ( req.readyState == 4) {
 	   // var d = req.responseXML.documentElement	
 		    displayResult( req )    
-	}
+		}
     }
     req.send( xmlDoc );
     // clear text area
     text.value = '';	
-}
-
-function register(){
 }
