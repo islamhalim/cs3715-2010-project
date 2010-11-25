@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
-import java.util.ArrayList; 
+import java.util.ArrayList;
 
 
 /********************************************************************************
@@ -18,8 +18,9 @@ Date: Nov.21st, 2010
 
 ********************************************************************************/
 
-public class DataServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
     private String username = "Enter username";
+    private String password; 
 
     protected void doPost(
         HttpServletRequest request, HttpServletResponse response)
@@ -29,8 +30,9 @@ public class DataServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         String path = request.getPathInfo();
 
+    	System.out.println("doPost is getting called!");
 
-	if (path.equals("/login")){
+	if (path.equals("/root")){
 		System.out.println("path=" + path );	
 		BufferedReader rd = request.getReader();
 		StringBuilder sb = new StringBuilder();
@@ -45,9 +47,10 @@ public class DataServlet extends HttpServlet {
 		//System.out.println( sb.toString() );
 		out.println( "<?xml version='1.0'?>" );
 		out.print( "<list>" );
-		//out.print( "<element> count"+count+"</element>");
-		//out.print ( sb.toString() + "</list>" );
-		out.print ( username + "</list>");	
+		out.print( "<element> username"+username+"</element>");
+		out.print( "<element> password"+password+"</element>");
+		out.print ( username + "</list>");
+		
 //		countA++;
 	}
 
@@ -131,11 +134,12 @@ public class DataServlet extends HttpServlet {
 	System.out.println("doGet is getting called!");
 	System.out.println(letter);
 	
-	if (letter.equals("login")){
+	if (letter.equals("/root")){
 		System.out.println("Making it to login!");
 		out.print( "<?xml version='1.0'?>" );
 		out.print("<list>");			
 		out.print(username);
+		out.print(password);
 		out.print("</list>");
 	}
 
