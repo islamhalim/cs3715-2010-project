@@ -9,12 +9,12 @@ import java.util.ArrayList;
 
 
 /********************************************************************************
-DataServlet represents the servlet for handling comments on the Jetty server.
+LoginServlet represents the servlet for handling logging into the Jetty server.
 
 
-Author: Robert Seward
+Author: James LaFreniere
 Submitted To: Dr. Y. Chen
-Date: Nov.21st, 2010
+Date: Nov.26th, 2010
 
 ********************************************************************************/
 
@@ -22,6 +22,7 @@ public class LoginServlet extends HttpServlet {
     private String username;
     private String password;
     private String status;
+//    private LoginInterface login;
 
     protected void doPost(
         HttpServletRequest request, HttpServletResponse response)
@@ -43,8 +44,17 @@ public class LoginServlet extends HttpServlet {
 		    sb.append( (char)ch);
 		}
 
-		username = sb.toString();
-		System.out.println(username);
+		String noXMLString = sb.toString().replaceAll("\\<.*?\\>", "");
+		System.out.println(noXMLString);
+		String pass = noXMLString.substring(noXMLString.length() -8);
+		String user = noXMLString.substring(0, (noXMLString.length() -8));
+		username = user;
+		password = pass;
+//		Student s = login.Student(user, pass);
+//		if (s == null) status = "bad";
+//		else status = "ok";
+		
+		
 		//System.out.println( sb.toString() );
 		out.println( "<?xml version='1.0'?>" );
 		out.println("<login>");
@@ -116,4 +126,5 @@ public class LoginServlet extends HttpServlet {
 	}	
 	
     }
+
 }

@@ -1,4 +1,3 @@
-/* ajax example, that appends to a list */
 function sendForm( evt ) {
 	
     // get userName data
@@ -20,37 +19,22 @@ function sendForm( evt ) {
     xml.appendChild( xmlDoc.createTextNode( password.value) );
     xmlDoc.appendChild( xml );
     
-    
-    if (userName.value =='root'){ 	
+
 	    // transmit the document
 	    var req = new XMLHttpRequest();
-	    req.open("POST","login/root", true );	
+	    req.open("POST","account", true );	
 	    req.onreadystatechange = function() {
 		if ( req.readyState == 4) {
 		    displayResult( req )
 		}
 	    }
 	    req.send( xmlDoc );
-	    // clear text area
-    }
-    
-    else{
-    	var req = new XMLHttpRequest();
-	    req.open("POST","login/user", true );	
-	    req.onreadystatechange = function() {
-		if ( req.readyState == 4) {
-		    displayResult( req )
-		}
-	    }
-	    req.send( xmlDoc );
-	    // clear text area
-    }
-    password.text = '';
     
 }
 
 function personal(){
-	
+	alert("ok");
+	document.getElementById('infotable').style = "display:none";
 }
 function courses(){
 	
@@ -60,35 +44,6 @@ function regInfo(){
 }
 function courseCreation(){
 	
-}
-
-function login(){
-	alert(thePass.value);
-	var theName = document.getElementById('userName');
-	var thePass = document.getElementById('password');
-	if (theName.value == 'root') {
-		   alert(thePass.value);
-		clearResults();
-		checkPass();
-		initializeForm();
-	}
-	
-		
-}
-
-function register(){
-	var theName = document.getElementById('userName');
-	var thePass = document.getElementById('password');
-	if (theName == 'root'){
-		clearResults();
-		rootReg();
-		//initializeForm();
-	}
-	else {
-		clearResults();
-		checkReg(theName.value, thePass.value);
-		//initializeForm();
-	}
 }
 
 function displayResult( req ) {
@@ -122,7 +77,7 @@ function clearResults( ) {
 
 function initializeForm() 
 {
-     var b = document.getElementById( 'loginButton' );
+     var b = document.getElementById( 'infotable' );
      b.addEventListener('click', sendForm, false );
 
 }
@@ -140,6 +95,4 @@ function getData(){
 		}
     }
     req.send( xmlDoc );
-    // clear text area
-    //text.value = '';	
 }
