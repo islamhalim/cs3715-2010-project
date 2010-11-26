@@ -1,0 +1,51 @@
+<!--HTML document responsible for displaying all data to user-->
+
+<html>
+<head>
+	<title>Personal Info</title>
+	<script type="text/javascript" src="infoPane.js"></script>
+	<link rel="stylesheet" type="text/css" href="default.css" />
+</head>
+
+<body>
+<div class="menubar">
+		<a href="javascript:void(0)" id="preferences">Preferences</a>
+		<a href="javascript:void(0)" id="logout">Logout</a>
+</div>
+
+<table class="options" border="0">
+		<tr><td><a href="javascript:void(0)" id="personal" onclick="pers()">Personal Information</a></td></tr>
+		<tr><td><a href="javascript:void(0)" id="regInfo" onclick="coursereg()">Course Registration</a></td></tr>
+		<tr><td><a href="javascript:void(0)" id="courses" onclick="crses()">Course Summary</a></td></tr>
+		<tr><td><a href="javascript:void(0)" id="cCreation" onclick="courseCreation()">Course Creation</a></td></tr>
+</table>
+
+<table class ="info" id="infotable">
+	<tr><td class="label">Full Name:</td>
+		<td class="desc"><a id="fullname"></a> </td>
+		<td class="links"></td>
+	</tr>
+	<tr><td class="label">Address:</td>
+		<td class="desc"><a id="address"></a> </td>
+		<td class="links"></td>
+	</tr>
+	<tr><td class="label">E-mail:</td>
+		<td class="desc"><a id="email"></a> </td>
+		<td class="links"></td>
+	</tr>
+	<tr><td class="label">Phone:</td>
+		<td class="desc"><a id="phone"></a> </td>
+		<td class="links"></td>
+	</tr>
+</table>
+
+
+<table class ="courses" id="coursetable">
+<tr><td class="label">1</td><td><a id="course1"></a></td><td><a id="course1num"></a></td></tr>
+<tr><td class="label">2</td><td><a id="course2"></a></td><td><a id="course2num"></a></td></tr>
+<tr><td class="label">3</td><td><a id="course3"></a></td><td><a id="course3num"></a></td></tr>
+<tr><td class="label">4</td><td><a id="course4"></a></td><td><a id="course4num"></a></td></tr>
+<tr><td class="label">5</td><td><a id="course5"></a></td><td><a id="course5num"></a></td></tr>
+</table>
+</body>
+</html>

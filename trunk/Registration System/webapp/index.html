@@ -1,0 +1,40 @@
+<!--HTML file for logging into the Registration System-->
+
+<html>
+<head>
+	<title>Course Registration Login</title>
+	<script type="text/javascript" src="logIn.js"></script>
+	<link rel="stylesheet" type="text/css" href="index.css" />
+
+</head>
+<body>
+
+	<br>
+	<ol id="list">
+	</ol>
+
+	<table rules=rows border=1 cellpadding=4 align="center">
+		<tr>
+			<td class ="head">Username:</td>
+			<td align=center>
+				<input type="text" size="10" maxlength="10" id="userName">
+			</td>
+		</tr>
+		<tr>
+		<td class="head">Password:</td>
+			<td align=center>
+				<input type="password" size="10" maxlength="10" id="password">
+			</td>
+		</tr>
+		<tr class="blankrow">
+			<td></td>
+			<td align=center>
+				<button id="loginButton" onclick="login()"> login </button>
+				<button id="registerButton" onclick="register()"> register </button>
+			</td>
+		</tr>
+	</table>
+
+</body>
+</html>
+
