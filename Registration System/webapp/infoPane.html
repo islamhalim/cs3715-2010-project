@@ -12,13 +12,13 @@
 </div>
 
 <table class="options" border="0">
-		<tr><td><a href="javascript:void(0)" id="personal">Personal Information</a></td></tr>
-		<tr><td><a href="javascript:void(0)" id="coursereg">Course Registration</a></td></tr>
-		<tr><td><a href="javascript:void(0)" id="courses">Course Summary</a></td></tr>
-		<tr><td><a href="javascript:void(0)" id="cCreation">Course Creation</a></td></tr>
+		<tr><td><a href="javascript:void(0)" id="personal" onclick="javascript:alert("ok")">Personal Information</a></td></tr>
+		<tr><td><a href="javascript:void(0)" id="regInfo" onclick="coursereg()">Course Registration</a></td></tr>
+		<tr><td><a href="javascript:void(0)" id="courses" onclick="courses()">Course Summary</a></td></tr>
+		<tr><td><a href="javascript:void(0)" id="cCreation" onclick="courseCreation()">Course Creation</a></td></tr>
 </table>
 
-<table class ="info">
+<table class ="info" id="infotable">
 	<tr><td class="label">Full Name:</td>
 		<td class="desc"><a id="fullname"></a> </td>
 		<td class="links"></td>

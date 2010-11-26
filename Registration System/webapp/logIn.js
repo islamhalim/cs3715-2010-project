@@ -9,10 +9,12 @@ function sendForm( evt ) {
 
     var xmluser = xmlDoc.createElement('username');
     var xmlpass = xmlDoc.createElement('password');
+    var xmlstatus = xmlDoc.createElement('status');
     var xmlhead = xmlDoc.createElement('login');
     xmlDoc.appendChild(xmlhead);
     xmlhead.appendChild( xmluser );
     xmlhead.appendChild( xmlpass);
+    xmlhead.appendChild( xmlstatus);
     xmluser.appendChild( xmlDoc.createTextNode( text.value) );
     xmlpass.appendChild( xmlDoc.createTextNode( thePass.value) );
     
@@ -70,6 +72,7 @@ function displayResult( req ) {
     alert(f);
 	document.getElementById('test').value = e;
 	var g = d.getElementsByTagName( 'status' )[0].textContent;
+	alert(g);
 	if (g == "ok"){ window.location="index.html"}
     }
 
@@ -97,10 +100,12 @@ function checkPass(){
     
     var xmluser = xmlDoc.createElement('username');
     var xmlpass = xmlDoc.createElement('password');
+    var xmlstatus = xmlDoc.createElement('status');
     var xmlhead = xmlDoc.createElement('login');
     xmlDoc.appendChild(xmlhead);
     xmlhead.appendChild( xmluser );
     xmlhead.appendChild( xmlpass );
+    xmlhead.appendChild( xmlstatus );
     xmluser.appendChild( xmlDoc.createTextNode( text.value ) );
     xmlpass.appendChild( xmlDoc.createTextNode( thePass.value ) );
     
@@ -124,6 +129,7 @@ function checkReg(){
     
     var xmluser = xmlDoc.createElement('username');
     var xmlpass = xmlDoc.createElement('password');
+    var xmlstatus = xmlDoc.createElement('status');
     var xmlhead = xmlDoc.createElement('login');
     xmlDoc.appendChild(xmlhead);
     xmlhead.appendChild( xmluser );
