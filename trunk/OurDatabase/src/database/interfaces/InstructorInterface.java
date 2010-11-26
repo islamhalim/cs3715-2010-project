@@ -6,6 +6,10 @@ import database.Course;
 
 public interface InstructorInterface {
 	
+	/**
+	 * 
+	 * @return An ArrayList of the Courses taught by the instructor
+	 */
 	public ArrayList<Course> getCourseList();
 
 }

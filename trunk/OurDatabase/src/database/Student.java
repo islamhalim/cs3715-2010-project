@@ -7,7 +7,16 @@ import database.interfaces.StudentInterface;
 public class Student extends Account implements StudentInterface {
 	
 	ArrayList<Integer> currCourses;
-	
+	/**
+	 * Constructor 
+	 * 
+	 * @param sUserName - User name for Student as type String.
+	 * @param sPassword - password for Student as type String.
+	 * @param iName	- name of User for Student as type String.
+	 * @param iEmail - the email address of the Student.
+	 * @param sAddress - address for 
+	 * @param sPhoneNum
+	 */
 	public Student(String sUserName, String sPassword , String sName, 
 						String sEmail, String sAddress, String sPhoneNum){
 		
@@ -15,6 +24,7 @@ public class Student extends Account implements StudentInterface {
 		this.currCourses = new ArrayList<Integer>();
 		
 	}
+	//Use to create a student
 	public boolean createStudent(String sUserName, String sPassword, String sName, String sEmail,
 			String sAddress, String sPhoneNum){
 		
@@ -28,6 +38,8 @@ public class Student extends Account implements StudentInterface {
 		}
 		 return dBase.addStudent(new Student(sUserName, sPassword, sName, sEmail, sAddress, sPhoneNum));
 	}
+	
+	//deletes a student Account from the database, called by he User.
 	public boolean deleteStudent(){
 		
 		Database dBase = Database.getInstance();
@@ -35,6 +47,10 @@ public class Student extends Account implements StudentInterface {
 		
 	}
 	
+	/**
+	 * gets an ArrayList of all the Courses not registered by the user
+	 * 
+	 */
 	public ArrayList<Course> getAllCourse()
 	{
 		Database dBase = Database.getInstance();
@@ -55,7 +71,11 @@ public class Student extends Account implements StudentInterface {
 		}
 		return clist;
 	}
-	
+	/**
+	 * Registers the student for a Course. Adds Course Number to the Students list of 
+	 * Registered Courses. Returns true if course was added.
+	 * 
+	 */
 	public boolean addCourse( Course course){
 		if(course.courseReg(this))
 		{
@@ -65,6 +85,9 @@ public class Student extends Account implements StudentInterface {
 		else
 			return false;
 	}
+	/**
+	 * Find the course in the Students list of Register courses and remove course from list.
+	 */
 	public boolean dropCourse( Course course){
 		for(Integer c: currCourses)
 		{
@@ -78,6 +101,9 @@ public class Student extends Account implements StudentInterface {
 		}
 		return false;
 	}
+	/**
+	 * get an Arrraylist of courses current taken by the User
+	 */
 	public ArrayList<Course> getCourseList()
 	{
 		Database dBase = Database.getInstance();

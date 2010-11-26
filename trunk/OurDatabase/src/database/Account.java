@@ -2,7 +2,11 @@ package database;
 
 import org.jasypt.util.password.*;
 
-
+/**
+ * An Abstract class implemented by any class that wants to be an Account on this database.
+ * @author matthew
+ *
+ */
 public abstract class Account {
 	
 	private String userName;
