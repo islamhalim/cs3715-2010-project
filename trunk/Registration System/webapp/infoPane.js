@@ -36,20 +36,31 @@ function sendForm( evt ) {
 function pers(){
 	//alert("ok");
 	document.getElementById('coursetable').style = "display:none";
+	document.getElementById('regtable').style = "display:none";
+	document.getElementById('cctable').style = "display:none";
 }
 
 function crses(){
 	document.getElementById('infotable').style = "display:none";
+	document.getElementById('regtable').style = "display:none";
+	document.getElementById('cctable').style = "display:none";
 }
 
 function regInfo(){
-	
+	document.getElementById('infotable').style = "display:none";
+	document.getElementById('coursetable').style = "display:none";
+	document.getElementById('cctable').style = "display:none";
 }
 
 function courseCreation(){
-	
+	document.getElementById('infotable').style = "display:none";
+	document.getElementById('regtable').style = "display:none";
+	document.getElementById('coursetable').style = "display:none";
 }
 
+function submitRegistration(){
+	
+}
 
 function displayResult( req ) {
     var d = req.responseXML.documentElement;
