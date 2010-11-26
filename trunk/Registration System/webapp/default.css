@@ -32,11 +32,16 @@ TABLE.info {
 }
 
 TABLE.courses {
-	border-bottom: 1px black;
-	border-left: 1px black;
-	border-right: 1px black;
-	border-top: 1px black;
+	border: 1px solid black;
+	display: none;
 	}
+	
+TABLE.register {
+	border: 1px solid black;
+	text-align: center;
+	padding: 5px;
+	
+}
 
 TABLE TD.label {
 	color: black;
