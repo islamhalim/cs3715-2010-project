@@ -18,7 +18,9 @@ public class Database implements LoginInterface{
 		this.courses = new ArrayList<Course>();
 		this.students = new ArrayList<Student>();
 		this.instructors = new ArrayList<Instructor>();
-		while(!adminCreated);
+		//while(!adminCreated);
+		//TEsting
+		students.add(new Student("root","aaaaaaaa", "Matthew Dinn", "matthew@this.ca", "n/a", "n/a"));
 			
 		}
 		//create courses and students from XML file;
@@ -29,43 +31,7 @@ public class Database implements LoginInterface{
 	    return INSTANCE;
 	  }
 	
-//	public boolean createStudent(String sUserName, String sPassword, String sName, String sEmail,
-//								String sAddress, String sPhoneNum){
-//		for(Student s: students)
-//		{
-//			if(s.getUserName() == sUserName) return false;
-//		}
-//		synchronized(this.students)
-//		{
-//			students.add(new Student(sUserName, sPassword, sEmail, sAddress, sPhoneNum, sPassword ));
-//		}
-//		return true;
-//	}
-	
-//	
-//	public boolean createInstructor(String iUserName, String iPassword, String iName, String iEmail, String iAddress,
-//										String iPhoneNum){
-//		for(Instructor i: instructors)
-//		{
-//			if(i.getUserName() == iUserName) return false;
-//		}
-//		synchronized(this.instructors){
-//			if(instructors.add(new Instructor(iUserName, iPassword, iName, iEmail, iAddress, iPhoneNum)))
-//				return true;
-//			else
-//				return false;
-//		}
-//	}
 
-	
-//	private boolean createAdmin( String aUserName, String aPassword, String aName, String aEmail )
-//	{
-//		if(admins.add(new Administrator(aUserName, aPassword, aName, aEmail))) 
-//			return true;
-//		else
-//			return false;
-//	}
-	
 	public Student studentLogin(String sUserName, String sPassword){
 		for(Student s: students)
 		{
@@ -231,42 +197,5 @@ public class Database implements LoginInterface{
 		return false;
 	}
 	
-//	public ArrayList<Course> getCourses(Instructor i )
-//	{
-//		return i.getCourseList(this.courses);
-//	}
-//	
-//	public ArrayList<Course> getCourses(Student s){
-//		
-//		return s.getCourseList(this.courses);
-//	}
-	
-//	public ArrayList<Course> getOtherCourse( Student s)
-//	{
-//		ArrayList<Course> clist = new ArrayList<Course>();
-//		for(Course c: courses){
-//			boolean add = true;
-//			for(Course sCourse : this.getCourses(s))
-//			{
-//				if( sCourse.getCourseNum() == c.getCourseNum())
-//				{
-//					add = false;
-//					break;
-//				}
-//			}
-//			if(add) clist.add(c);
-//		}
-//		return clist;
-//	}
-//	public boolean createCourse(int courseNum, String courseName, int courseCap, String courseInstr, String courseInfo)
-//	{
-//		for(Course i : courses)
-//		{
-//			if(i.getCourseNum() == courseNum) return false;
-//		}
-//		if(courses.add(new Course(courseNum,courseName, courseCap, courseInstr, courseInfo)))
-//			return true;
-//		else
-//			return false;
-//	}
+
 }
