@@ -19,8 +19,9 @@ Date: Nov.21st, 2010
 ********************************************************************************/
 
 public class LoginServlet extends HttpServlet {
-    private String username = "Enter username";
-    private String password; 
+    private String username;
+    private String password;
+    private String status;
 
     protected void doPost(
         HttpServletRequest request, HttpServletResponse response)
@@ -31,7 +32,8 @@ public class LoginServlet extends HttpServlet {
         String path = request.getPathInfo();
 
     	System.out.println("doPost is getting called!");
-
+    	System.out.println(path);
+    	
 	if (path.equals("/root")){
 		System.out.println("path=" + path );	
 		BufferedReader rd = request.getReader();
@@ -41,84 +43,53 @@ public class LoginServlet extends HttpServlet {
 		    sb.append( (char)ch);
 		}
 
-	
 		username = sb.toString();
-	
+		System.out.println(username);
 		//System.out.println( sb.toString() );
 		out.println( "<?xml version='1.0'?>" );
-		out.print( "<list>" );
-		out.print( "<element> username"+username+"</element>");
-		out.print( "<element> password"+password+"</element>");
-		out.print ( username + "</list>");
-		
-//		countA++;
+		out.println("<login>");
+		out.println( "<username> "+username+"</username>");
+		out.println( "<password>"+password+"</password>");
+		out.println( "<status>"+status+"</status>");
+		out.println("</login>");
 	}
+	
+	if (path.equals("/user")){
+		System.out.println("path=" + path );	
+		BufferedReader rd = request.getReader();
+		StringBuilder sb = new StringBuilder();
+		int ch;
+		while ( (ch=rd.read()) != -1 ) {
+		    sb.append( (char)ch);
+		}
 
-//	if (path.equals("/b")){
-//		System.out.println("path=" + path );	
-//		BufferedReader rd = request.getReader();
-//		StringBuilder sb = new StringBuilder();
-//		int ch;
-//		while ( (ch=rd.read()) != -1 ) {
-//		    sb.append( (char)ch);
-//		}
-//
-//	
-//		pictureB.add(sb.toString());
-//	
-//		//System.out.println( sb.toString() );
-//		out.println( "<?xml version='1.0'?>" );
-//		out.print( "<list>" );
-//		//out.print( "<element> count"+count+"</element>");
-//		//out.print ( sb.toString() + "</list>" );
-//		out.print ( pictureB.get(countB) + "</list>");	
-//		countB++;
-//	}
-//
-//	if (path.equals("/c")){
-//		System.out.println("path=" + path );	
-//		BufferedReader rd = request.getReader();
-//		StringBuilder sb = new StringBuilder();
-//		int ch;
-//		while ( (ch=rd.read()) != -1 ) {
-//		    sb.append( (char)ch);
-//		}
-//
-//	
-//		pictureC.add(sb.toString());
-//	
-//		//System.out.println( sb.toString() );
-//		out.println( "<?xml version='1.0'?>" );
-//		out.print( "<list>" );
-//		//out.print( "<element> count"+count+"</element>");
-//		//out.print ( sb.toString() + "</list>" );
-//		out.print ( pictureC.get(countC) + "</list>");	
-//		countC++;
-//	}
-//
-//	if (path.equals("/d")){
-//		System.out.println("path=" + path );	
-//		BufferedReader rd = request.getReader();
-//		StringBuilder sb = new StringBuilder();
-//		int ch;
-//		while ( (ch=rd.read()) != -1 ) {
-//		    sb.append( (char)ch);
-//		}
-//
-//	
-//		pictureD.add(sb.toString());
-//	
-//		//System.out.println( sb.toString() );
-//		out.println( "<?xml version='1.0'?>" );
-//		out.print( "<list>" );
-//		//out.print( "<element> count"+count+"</element>");
-//		//out.print ( sb.toString() + "</list>" );
-//		out.print ( pictureD.get(countD) + "</list>");	
-//		countD++;
-//	}
-//
-//
-//
+		username = sb.toString();
+		System.out.println(username);
+		//System.out.println( sb.toString() );
+		out.println( "<?xml version='1.0'?>" );
+		out.println("<login>");
+		out.println( "<username> "+username+"</username>");
+		out.println( "<password>"+password+"</password>");
+		out.println( "<status>"+status+"</status>");
+		out.println("</login>");
+	}
+	
+	if (path.equals("/new")){
+		System.out.println("path=" + path );	
+		BufferedReader rd = request.getReader();
+		StringBuilder sb = new StringBuilder();
+		int ch;
+		while ( (ch=rd.read()) != -1 ) {
+		    sb.append( (char)ch);
+		}
+		System.out.println(sb.toString());
+		out.println( "<?xml version='1.0'?>" );
+		out.println("<login>");
+		out.println( "<username> "+username+"</username>");
+		out.println( "<password>"+password+"</password>");
+		out.println( "<status>"+status+"</status>");
+		out.println("</login>");
+	}
 
     }
 
@@ -136,11 +107,12 @@ public class LoginServlet extends HttpServlet {
 	
 	if (letter.equals("/root")){
 		System.out.println("Making it to login!");
-		out.print( "<?xml version='1.0'?>" );
-		out.print("<list>");			
-		out.print("<element>" + username + "</element>");
-		out.print("<element>" + password + "</element>");
-		out.print("</list>");
+		out.println( "<?xml version='1.0'?>" );
+		out.println("<login>");
+		out.println( "<username> "+username+"</username>");
+		out.println( "<password>"+password+"</password>");
+		out.println( "<status>"+status+"</status>");
+		out.println("</login>");
 	}	
 	
     }

@@ -30,7 +30,7 @@ public class AccountServlet extends HttpServlet {
 
     	System.out.println("doPost is getting called!");
 
-	if (path.equals("/root")){
+	if (path.equals("/account")){
 		System.out.println("path=" + path );	
 		BufferedReader rd = request.getReader();
 		StringBuilder sb = new StringBuilder();
@@ -41,84 +41,26 @@ public class AccountServlet extends HttpServlet {
 
 	
 		username = sb.toString();
-	
-		//System.out.println( sb.toString() );
 		out.println( "<?xml version='1.0'?>" );
-		out.print( "<list>" );
-		out.print( "<element> username"+username+"</element>");
-		out.print( "<element> password"+password+"</element>");
-		out.print ( username + "</list>");
-		
-//		countA++;
+		out.println( "<account>" );
+		out.println( "<info>");
+		out.println( "<realname>"+password+"</realname>");
+		out.println( "<address>"+password+"</address>");
+		out.println( "<email>"+password+"</email>");
+		out.println( "<phone>"+password+"</phone>");
+		out.println( "</info>");
+		out.println( "<courses>");
+		for (var i = 0; i < courses.length; i++){
+			out.println( "<course>");
+			out.println("<name>" + courses.get(i).getName() + "</name>");
+			out.println("<number>" + courses.get(i).getNumber() + "</number>")
+			out.println("</course>");
+		}
+		out.println ("</account>");
 	}
 
-//	if (path.equals("/b")){
-//		System.out.println("path=" + path );	
-//		BufferedReader rd = request.getReader();
-//		StringBuilder sb = new StringBuilder();
-//		int ch;
-//		while ( (ch=rd.read()) != -1 ) {
-//		    sb.append( (char)ch);
-//		}
-//
-//	
-//		pictureB.add(sb.toString());
-//	
-//		//System.out.println( sb.toString() );
-//		out.println( "<?xml version='1.0'?>" );
-//		out.print( "<list>" );
-//		//out.print( "<element> count"+count+"</element>");
-//		//out.print ( sb.toString() + "</list>" );
-//		out.print ( pictureB.get(countB) + "</list>");	
-//		countB++;
-//	}
-//
-//	if (path.equals("/c")){
-//		System.out.println("path=" + path );	
-//		BufferedReader rd = request.getReader();
-//		StringBuilder sb = new StringBuilder();
-//		int ch;
-//		while ( (ch=rd.read()) != -1 ) {
-//		    sb.append( (char)ch);
-//		}
-//
-//	
-//		pictureC.add(sb.toString());
-//	
-//		//System.out.println( sb.toString() );
-//		out.println( "<?xml version='1.0'?>" );
-//		out.print( "<list>" );
-//		//out.print( "<element> count"+count+"</element>");
-//		//out.print ( sb.toString() + "</list>" );
-//		out.print ( pictureC.get(countC) + "</list>");	
-//		countC++;
-//	}
-//
-//	if (path.equals("/d")){
-//		System.out.println("path=" + path );	
-//		BufferedReader rd = request.getReader();
-//		StringBuilder sb = new StringBuilder();
-//		int ch;
-//		while ( (ch=rd.read()) != -1 ) {
-//		    sb.append( (char)ch);
-//		}
-//
-//	
-//		pictureD.add(sb.toString());
-//	
-//		//System.out.println( sb.toString() );
-//		out.println( "<?xml version='1.0'?>" );
-//		out.print( "<list>" );
-//		//out.print( "<element> count"+count+"</element>");
-//		//out.print ( sb.toString() + "</list>" );
-//		out.print ( pictureD.get(countD) + "</list>");	
-//		countD++;
-//	}
-//
-//
-//
-
     }
+   
 
    protected void doGet(
         HttpServletRequest request, HttpServletResponse response)
@@ -140,37 +82,6 @@ public class AccountServlet extends HttpServlet {
 		out.print(password);
 		out.print("</list>");
 	}
-
-//	if (letter.equals("B/Bcomment")){
-//		System.out.println("Making it to B!");        
-//		out.print( "<?xml version='1.0'?>" );
-//		out.print("<list>");		
-//		for (int i=0; i<countB; i++){
-//			out.print(pictureB.get(i));		
-//		}
-//		out.print("</list>");
-//	}
-//
-//	if (letter.equals("C/Ccomment")){
-// 		System.out.println("Making it to C!");
-//		out.print( "<?xml version='1.0'?>" );
-//		out.print("<list>");		
-//		for (int i=0; i<countC; i++){
-//			out.print(pictureC.get(i));
-//		}
-//		out.print("</list>");
-//	}
-//
-//	if (letter.equals("D/Dcomment")){
-//		System.out.println("Making it to D!");
-//		out.print( "<?xml version='1.0'?>" );
-//		out.print("<list>");		
-//		for  (int i=0; i<countD; i++){
-//			out.print(pictureD.get(i));
-//		}	
-//		out.print("</list>");
-//	}	
-	
 	
     }
 }
