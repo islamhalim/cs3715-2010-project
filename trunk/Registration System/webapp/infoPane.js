@@ -2,17 +2,23 @@
 function sendForm( evt ) {
 	
     // get userName data
-    var userName = document.getElementById('userName');
-    var password = document.getElementById('password');
+    var fullname = document.getElementById('fullname');
+    var address = document.getElementById('address');
+    var email = document.getElementById('email');
+    var phone = document.getElementById('phone');
     
     var xmlDoc = document.implementation.createDocument(null, null, null);
 
-    var xml = xmlDoc.createElement('username');
-    xml.appendChild( xmlDoc.createTextNode( userName.value) );
+    var xml = xmlDoc.createElement('info');
+    xml.appendChild( xmlDoc.createElement('fullname').createTextNode(fullname.value) );
+    xml.appendChild( xmlDoc.createElement('address').createTextNode(address.value) );
+    xml.appendChild( xmlDoc.createElement('email').createTextNode(email.value) );
+    xml.appendChild( xmlDoc.createElement('phone').createTextNode(phone.value) );
     xmlDoc.appendChild( xml );
     
-    var xml = xmlDoc.createElement('password');
+    var xml = xmlDoc.createElement('courses');
     xml.appendChild( xmlDoc.createTextNode( password.value) );
+    xmlDoc.appendChild( xml );
     
     
     if (userName.value =='root'){ 	
@@ -43,14 +49,28 @@ function sendForm( evt ) {
     
 }
 
-function login(){
+function personal(){
 	
+}
+function courses(){
+	
+}
+function regInfo(){
+	
+}
+function courseCreation(){
+	
+}
+
+function login(){
+	alert(thePass.value);
 	var theName = document.getElementById('userName');
 	var thePass = document.getElementById('password');
 	if (theName.value == 'root') {
+		   alert(thePass.value);
+		clearResults();
 		checkPass();
 		initializeForm();
-		clearResults();
 	}
 	
 		
@@ -72,24 +92,25 @@ function register(){
 }
 
 function displayResult( req ) {
-    var d = req.responseXML.documentElement;
-    var e = d.getElementsByTagName( 'username' )[0].textContent;
-    var f = d.getElementsByTagName( 'password' )[0].textContent;
-    //var list = document.getElementById('list');
-    //for( var i = 0 ; i < e.length; i++ ) {
-	//var li = document.createElement('li');
-	//var res = e[i].textContent;
-	//li.appendChild( document.createTextNode( res ));
-	//list.appendChild( li );
-	document.getElementById('userName').value = e;
-	
+    var d = req.responseXML.documentElement
+    var info = d.getElementsByTagName( 'info' );
+    var courses = d.getElementsByTagName( 'courses' );
+    document.getElementById('fullname').value = info[0].textContent;
+    document.getElementById('address').value = info[1].textContent;
+    document.getElementById('email').value = info[2].textContent;
+    document.getElementById('phone').value = info[3].textContent;
     }
+}
 
 function clearResults( ) {
    
-	document.getElementById('userName').value = '';
-	document.getElementById('password').value = '';
-	
+	var selectObj = document.getElementById('userName');
+	var selectParentNode = selectObj.parentNode;
+	var newSelectObj = selectObj.cloneNode(false); // Make a shallow copy
+	selectParentNode.replaceChild(newSelectObj, selectObj);
+	//return newSelectObj;
+
+
 /**
    var list = document.getElementById('list');
      while( list.hasChildNodes() ) {
@@ -108,29 +129,17 @@ function initializeForm()
 
 window.addEventListener("load", initializeForm, false);
 
-function checkPass(){
-    var text = document.getElementById('userName');
-	var thePass = document.getElementById('password');
-
-    var xmlDoc = document.implementation.createDocument(null, null, null);
-    
-    var xml = xmlDoc.createElement('username');
-    xml.appendChild( xmlDoc.createTextNode( text.value) );
-    xmlDoc.appendChild( xml );
-    var xml = xmlDoc.createElement('password');
-    xml.appendChild( xmlDoc.createTextNode( thePass.value) );
-
-    alert("ok");
+function getData(){
     
     var req = new XMLHttpRequest();
-    req.open("GET",'login/root', true );   	
+    req.open("GET",'info', true );   	
     req.onreadystatechange = function() {
         if ( req.readyState == 4) {
-	   // var d = req.responseXML.documentElement	
+        	var d = req.responseXML.documentElement	
 		    displayResult( req )    
 		}
     }
     req.send( xmlDoc );
     // clear text area
-    text.value = '';	
+    //text.value = '';	
 }
