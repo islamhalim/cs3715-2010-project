@@ -13,17 +13,20 @@ public class Database implements LoginInterface{
 	
 	private static final Database INSTANCE = new Database();
 	
-	
+	/**
+	 * Constructor Creates the database and a deafult admin
+	 */
 	private Database(){
 		this.courses = new ArrayList<Course>();
 		this.students = new ArrayList<Student>();
 		this.instructors = new ArrayList<Instructor>();
+		this.admins = new ArrayList<Administrator>();
 		//while(!adminCreated);
 		//TEsting
-		students.add(new Student("root","aaaaaaaa", "Matthew Dinn", "matthew@this.ca", "n/a", "n/a"));
+		admins.add(new Administrator("admin","admin", "Matthew Dinn", "matthew@this.ca"));
 			
 		}
-		//create courses and students from XML file;
+	//get the Database Object
 	public static final Database getInstance(){
 		return INSTANCE;
 	}
@@ -31,7 +34,6 @@ public class Database implements LoginInterface{
 	    return INSTANCE;
 	  }
 	
-
 	public Student studentLogin(String sUserName, String sPassword){
 		for(Student s: students)
 		{
@@ -64,8 +66,9 @@ public class Database implements LoginInterface{
 		}
 		return null;
 	}
-	
-	//get Courses and Users from database
+	/**
+	*get Courses and Users from database
+	*/
 	public ArrayList<Course> getCourses(){
 		return courses;
 	}
@@ -78,8 +81,9 @@ public class Database implements LoginInterface{
 	public ArrayList<Administrator> getAdmins(){
 		return admins;
 	}
-	
-	// add Courses, and Users to database
+	/**
+	 * add Courses, and Users to database
+	 */
 	public boolean addCourse( Course course)
 	{
 		for(Course c: courses)
@@ -137,8 +141,10 @@ public class Database implements LoginInterface{
 			return instructors.add(instructor);
 		}
 	}
+	/**
+	 * Remove Courses or Users from database
+	 */
 	
-	//Remove Courses or Users from database
 	public boolean removeCourse( Course course)
 	{
 		for(Course c: courses)
