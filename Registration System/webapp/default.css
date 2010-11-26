@@ -40,7 +40,14 @@ TABLE.register {
 	border: 1px solid black;
 	text-align: center;
 	padding: 5px;
-	
+	display: none;
+}
+
+TABLE.createcourse {
+	border: 1px solid black;
+	text-align: center;
+	padding: 5px;
+	display: none;
 }
 
 TABLE TD.label {
