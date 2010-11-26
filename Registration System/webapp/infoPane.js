@@ -10,7 +10,7 @@ function sendForm( evt ) {
     var xmlDoc = document.implementation.createDocument(null, null, null);
 
     var xml = xmlDoc.createElement('info');
-    xml.appendChild( xmlDoc.createElement('fullname').createTextNode(fullname.value) );
+    var xml.appendChild( xmlDoc.createElement('fullname').createTextNode(fullname.value) );
     xml.appendChild( xmlDoc.createElement('address').createTextNode(address.value) );
     xml.appendChild( xmlDoc.createElement('email').createTextNode(email.value) );
     xml.appendChild( xmlDoc.createElement('phone').createTextNode(phone.value) );
