@@ -1,0 +1,69 @@
+/* default css stylesheet used in the infoPane.html file */
+
+@CHARSET "UTF-8";
+DIV.menubar {
+	color: green;
+	font-family: Verdana,Arial Narrow,  helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 90%;
+	font-style: normal;
+	text-align: right;
+	vertical-align: top;
+}
+
+TABLE.options {
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-style: none;
+	vertical-align: top;
+	float: left;
+}
+
+TABLE.info {
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+
+TABLE.courses {
+	border-bottom: 1px black;
+	border-left: 1px black;
+	border-right: 1px black;
+	border-top: 1px black;
+	}
+
+TABLE TD.label {
+	color: black;
+	font-family: Verdana,Arial Narrow,  helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 90%;
+	font-style: normal;
+	text-align: left;
+	vertical-align: middle;
+}
+
+TABLE TD.desc {
+	color: green;
+	font-family: Verdana,Arial Narrow,  helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 90%;
+	font-style: normal;
+	text-align: left;
+	vertical-align: middle;
+}
+
+TABLE TD.link {
+	color: #CED5EA;
+	font-family : Verdana,Arial Narrow,  helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 90%;
+	font-style: normal;
+	text-align: left;
+	vertical-align: middle;
+}
