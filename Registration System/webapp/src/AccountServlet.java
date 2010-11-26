@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.util.ArrayList; 
 
 
 /********************************************************************************
@@ -18,9 +18,7 @@ Date: Nov.21st, 2010
 
 ********************************************************************************/
 
-public class LoginServlet extends HttpServlet {
-    private String username = "Enter username";
-    private String password; 
+public class AccountServlet extends HttpServlet {
 
     protected void doPost(
         HttpServletRequest request, HttpServletResponse response)
@@ -138,10 +136,41 @@ public class LoginServlet extends HttpServlet {
 		System.out.println("Making it to login!");
 		out.print( "<?xml version='1.0'?>" );
 		out.print("<list>");			
-		out.print("<element>" + username + "</element>");
-		out.print("<element>" + password + "</element>");
+		out.print(username);
+		out.print(password);
 		out.print("</list>");
-	}	
+	}
+
+//	if (letter.equals("B/Bcomment")){
+//		System.out.println("Making it to B!");        
+//		out.print( "<?xml version='1.0'?>" );
+//		out.print("<list>");		
+//		for (int i=0; i<countB; i++){
+//			out.print(pictureB.get(i));		
+//		}
+//		out.print("</list>");
+//	}
+//
+//	if (letter.equals("C/Ccomment")){
+// 		System.out.println("Making it to C!");
+//		out.print( "<?xml version='1.0'?>" );
+//		out.print("<list>");		
+//		for (int i=0; i<countC; i++){
+//			out.print(pictureC.get(i));
+//		}
+//		out.print("</list>");
+//	}
+//
+//	if (letter.equals("D/Dcomment")){
+//		System.out.println("Making it to D!");
+//		out.print( "<?xml version='1.0'?>" );
+//		out.print("<list>");		
+//		for  (int i=0; i<countD; i++){
+//			out.print(pictureD.get(i));
+//		}	
+//		out.print("</list>");
+//	}	
+	
 	
     }
 }
