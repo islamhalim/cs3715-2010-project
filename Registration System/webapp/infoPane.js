@@ -35,11 +35,11 @@ function sendForm( evt ) {
 // used to toggle display of the infotable 
 function pers(){
 	//alert("ok");
-	document.getElementById('infotable').style = "display:none";
+	document.getElementById('coursetable').style = "display:none";
 }
 
 function crses(){
-	
+	document.getElementById('infotable').style = "display:none";
 }
 
 function regInfo(){
