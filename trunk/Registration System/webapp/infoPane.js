@@ -79,6 +79,10 @@ function displayResult( req ) {
     document.getElementById('phone').value = info[3].textContent;
 }
 
+function exit() {
+	location.replace("index.html");
+}
+
 function clearResults( ) {
    
 	document.getElementById('fullname').value = '';
