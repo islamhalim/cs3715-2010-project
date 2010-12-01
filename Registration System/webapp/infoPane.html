@@ -8,14 +8,14 @@
 </head>
 
 <body>
-
+<div class="out">
 <div class="header"></div>
 
 <div class="prefs">
 		<a href="javascript:void(0)" id="preferences">Preferences</a>
-		<a href="javascript:void(0)" id="logout">Logout</a>
+		<a href="javascript:void(0)" id="logout" onclick="exit()">Logout</a>
 </div>
-
+<div class="outercontainer">
 <div class="options">
 		<p id="personal" onclick="pers()">Personal Information</p>
 		<p id="regInfo" onclick="regInfo()">Course Registration</p>
@@ -63,6 +63,9 @@
 <tr><td class = label>Course Name</td><td class = label>Course Number</td></tr>
 <tr><td><input type="text" size="10" maxlength="10" id="ccname" /></td><td><input type="text" size="4" maxlength="4" id="ccnum" /></td></tr>
 </table>
+<div class="clear"></div>
+</div>
 <div class="footer">This website was created by Matthew Dinn and James LaFreniere for educational purposes only.</div>
+</div>
 </body>
 </html>
