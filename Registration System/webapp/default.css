@@ -1,21 +1,8 @@
 /* default css stylesheet used in the infoPane.html file */
 
 @CHARSET "UTF-8";
-DIV.menubar {
-	color: green;
-	font-family: Verdana,Arial Narrow,  helvetica, sans-serif;
-	font-weight: bold;
-	font-size: 90%;
-	font-style: normal;
-	text-align: right;
-	vertical-align: top;
-}
 
-TABLE.options {
-	border-bottom: none;
-	border-left: none;
-	border-right: none;
-	border-top: none;
+DIV.options {
 	border-style: none;
 	vertical-align: top;
 	float: left;
@@ -26,14 +13,17 @@ TABLE.info {
 	border-left: none;
 	border-right: none;
 	border-top: none;
-	margin-left: auto;
-	margin-right: auto;
-	
+	position :relative;
+	left: 20%;
+	style: block;
+	float: none;
 }
 
 TABLE.courses {
 	border: 1px solid black;
 	display: none;
+	position :relative;
+	left: 20%;
 	}
 	
 TABLE.register {
@@ -41,6 +31,8 @@ TABLE.register {
 	text-align: center;
 	padding: 5px;
 	display: none;
+	position :relative;
+	left: 20%;
 }
 
 TABLE.createcourse {
@@ -48,6 +40,35 @@ TABLE.createcourse {
 	text-align: center;
 	padding: 5px;
 	display: none;
+	position :relative;
+	left: 20%;
+}
+
+DIV.header {
+	height: 20%;
+	background-image: url("images/header.png");
+	background-repeat: no-repeat;
+	vertical-align: middle;
+}
+
+TABLE TR.footer {
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+	border-top: 1 px solid black;	
+}
+
+DIV.prefs{
+	text-align: right;
+	border-style:solid;
+	border-bottom: 1 px solid black;
+	border-left: none;
+	border-right: none;
+	font-family: Verdana,Arial Narrow,  helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 90%;
+	font-style: normal;
+	vertical-align: top;
 }
 
 TABLE TD.label {
@@ -78,4 +99,15 @@ TABLE TD.link {
 	font-style: normal;
 	text-align: left;
 	vertical-align: middle;
+}
+
+DIV.footer {
+	position: relative;
+	bottom: 10 px;
+	text-align: right;
+	border-style:solid;
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+	border-top: 1 px solid black;
 }

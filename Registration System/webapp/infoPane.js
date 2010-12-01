@@ -9,7 +9,7 @@ function sendForm( evt ) {
     var xmlDoc = document.implementation.createDocument(null, null, null);
     //create the xml document
     var xml = xmlDoc.createElement('info');
-    var xml.appendChild( xmlDoc.createElement('fullname').createTextNode(fullname.value) );
+    xml.appendChild( xmlDoc.createElement('fullname').createTextNode(fullname.value) );
     xml.appendChild( xmlDoc.createElement('address').createTextNode(address.value) );
     xml.appendChild( xmlDoc.createElement('email').createTextNode(email.value) );
     xml.appendChild( xmlDoc.createElement('phone').createTextNode(phone.value) );
@@ -34,32 +34,39 @@ function sendForm( evt ) {
 
 // used to toggle display of the infotable 
 function pers(){
-	//alert("ok");
-	document.getElementById('coursetable').style = "display:none";
-	document.getElementById('regtable').style = "display:none";
-	document.getElementById('cctable').style = "display:none";
+	document.getElementById('infotable').style.display='block';
+	document.getElementById('coursetable').style.display='none';
+	document.getElementById('regtable').style.display='none';
+	document.getElementById('cctable').style.display='none';
 }
 
 function crses(){
-	document.getElementById('infotable').style = "display:none";
-	document.getElementById('regtable').style = "display:none";
-	document.getElementById('cctable').style = "display:none";
+	document.getElementById('coursetable').style.display='block';
+	document.getElementById('infotable').style.display='none';
+	document.getElementById('regtable').style.display='none';
+	document.getElementById('cctable').style.display='none';
 }
 
 function regInfo(){
-	document.getElementById('infotable').style = "display:none";
-	document.getElementById('coursetable').style = "display:none";
-	document.getElementById('cctable').style = "display:none";
+	document.getElementById('regtable').style.display='block';
+	document.getElementById('infotable').style.display='none';
+	document.getElementById('coursetable').style.display='none';
+	document.getElementById('cctable').style.display='none';
 }
 
 function courseCreation(){
-	document.getElementById('infotable').style = "display:none";
-	document.getElementById('regtable').style = "display:none";
-	document.getElementById('coursetable').style = "display:none";
+	document.getElementById('cctable').style.display='block';
+	document.getElementById('infotable').style.display='none';
+	document.getElementById('regtable').style.display='none';
+	document.getElementById('coursetable').style.display='none';
 }
 
 function submitRegistration(){
 	
+}
+
+function openCourseList(){
+	window.open('courses.html','Course Listings','width=400,height=1000,resizable=no,scrollbars=yes,status=no,menubar=no');
 }
 
 function displayResult( req ) {
