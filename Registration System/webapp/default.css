@@ -2,28 +2,50 @@
 
 @CHARSET "UTF-8";
 
+DIV.out {
+	margin:auto;
+  width: 1080px; 
+  background: #ffffff;
+		
+}
+
 DIV.options {
-	border-style: none;
-	vertical-align: top;
+	border: 1px solid black;
+	text-align: center;
+	padding: 5px;
+	display: block;
+	position :relative;
 	float: left;
+	width: 200 px;
+}
+
+DIV.clear {
+	clear: both;
+}
+
+DIV.outercontainer {
+	position: relative;
+	width: 900 px;
 }
 
 TABLE.info {
-	border-bottom: none;
-	border-left: none;
-	border-right: none;
-	border-top: none;
+	border: 1px solid black;
+	text-align: center;
+	padding: 5px;
+	display: block;
 	position :relative;
-	left: 20%;
-	style: block;
-	float: none;
+	left: 200px;
+	margin-right: 200px;
 }
 
 TABLE.courses {
 	border: 1px solid black;
+	text-align: center;
+	padding: 5px;
 	display: none;
 	position :relative;
-	left: 20%;
+	left: 200px;
+	margin-right: 200px;
 	}
 	
 TABLE.register {
@@ -32,7 +54,8 @@ TABLE.register {
 	padding: 5px;
 	display: none;
 	position :relative;
-	left: 20%;
+	left: 200px;
+	margin-right: 200px;
 }
 
 TABLE.createcourse {
@@ -41,7 +64,8 @@ TABLE.createcourse {
 	padding: 5px;
 	display: none;
 	position :relative;
-	left: 20%;
+	left: 200px;
+	margin-right: 200px;
 }
 
 DIV.header {
